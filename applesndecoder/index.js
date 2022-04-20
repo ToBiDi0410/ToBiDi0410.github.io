@@ -46,18 +46,22 @@ function getResultFromDB(serial) {
     dateOne.setHours(weekCalculatedRes * 7 * 24);
 
     let finalDate = dateOne.toLocaleDateString();
+    let finalYear = yearOne.toString();
 
     if (yearRes.year.split("/").length > 1) {
         const yearTwo = yearRes.year.split("/")[1];
         const dateTwo = new Date("01/01/" + yearTwo);
         dateOne.setHours(weekCalculatedRes * 7 * 24);
         finalDate += " or " + dateTwo.toLocaleDateString();
+        finalYear += " or " + yearTwo.toString();
     }
+
+    finalYear += " (Half " + yearRes.half + ")"
 
     return {
         serial: serial,
         manloc: manufactureRes,
-        manyear: yearOne,
+        manyear: finalYear,
         manweek: weekCalculatedRes,
         mandate: finalDate
     };
