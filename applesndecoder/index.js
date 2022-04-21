@@ -1,5 +1,7 @@
 import { YEARS } from "./database/v1/years.js";
 import { WEEKS } from "./database/v1/weeks.js";
+import { isoCountries } from "./database/isoCodes.js";
+import { LOCATIONS } from "./database/v1/locations.js";
 
 function lookup() {
     document.querySelector(".result").classList.add("hidden");
@@ -28,8 +30,17 @@ function getResultFromDB(serial) {
     if (serial.length != 12) throw new Error("INVALID-LENGTH")
 
     const manufactureChars = getCharactersByRange(1, 3, serial);
-    const manufactureRes = manufactureChars;
-    if (!manufactureRes) throw new Error("MANUFACTURE-LOCATION-FAIL");
+    if (!manufactureChars) throw new Error("MANUFACTURE-LOCATION-FAIL");
+
+    let manufactureRes = Object.entries(LOCATIONS).find((pair) => { return manufactureChars.startsWith(pair[0]) });
+    if (manufactureRes) {
+        const manufactureObject = manufactureRes[1];
+        manufactureRes = "";
+        if (manufactureObject.name) manufactureRes += manufactureObject.name + ", ";
+        if (manufactureObject.city) manufactureRes += "City of " + manufactureObject.city + ", ";
+        if (manufactureObject.subarea) manufactureRes += "in " + manufactureObject.subarea + ", ";
+        if (manufactureObject.country) manufactureRes += getCountryByIsoCode(manufactureObject.country) + " ";
+    } else manufactureRes = manufactureChars + " (unknown)";
 
     const yearChar = getCharacterByNumber(4, serial);
     const yearRes = YEARS[yearChar];
@@ -65,6 +76,12 @@ function getResultFromDB(serial) {
         manweek: weekCalculatedRes,
         mandate: finalDate
     };
+}
+
+function getCountryByIsoCode(code) {
+    const res = isoCountries[code];
+    if (res) return res.name;
+    throw new Error("ISO Code invalid: " + code);
 }
 
 function getCharacterByNumber(number, str) {
