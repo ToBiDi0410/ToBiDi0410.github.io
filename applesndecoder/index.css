@@ -19,7 +19,7 @@ html {
     max-width: 80vw;
     color: white;
     max-height: 80vh;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .box>* {
