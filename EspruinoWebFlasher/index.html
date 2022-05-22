@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Espruino Web Installer</title>
+    <meta name="description" content="A simple tool for flashing Espruino just using a compatible Browser">
+    <meta name="robots" content="index, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-800 text-white w-screen h-screen flex justify-center items-center align-middle">
+    <script type="module" src="https://unpkg.com/esp-web-tools@8.0.2/dist/web/install-button.js?module"></script>
+
+    <div class="container w-fit text-center">
+        <div id="logo" class="hidden">
+            <img style="width: 80vw; max-width: 500px;" src="https://www.espruino.com/press/espruino_full_logo.png">
+        </div>
+        <div class="text-2xl font-bold">Espruino Web Installer</div>
+        <div class="p-2">
+            <div>1. Plugin the ESP Board into a USB Port</div>
+            <div>2. Click on connect and select the COM port</div>
+            <div>3. Click on 'Install Espruino' and confirm the erase</div>
+            <div>4. Wait and enjoy your Espruino install using the <a class="text-indigo-500" href="https://www.espruino.com/ide/">Web IDE</a></div>
+        </div>
+        <div class="p-2">
+            <label for="versions">Espruino Version:</label>
+            <select name="versions" id="versions" class="bg-gray-900"></select>
+            <br>
+            <label for="esp8266_4m" class="text-xs">ESP8266 4MB Flash (only if ESP8266)</label>
+            <input type="checkbox" name="esp8266_4m" id="esp8266_4m" checked>
+        </div>
+        <esp-web-install-button install-supported id="esp-button"></esp-web-install-button>
+        <div class="p-2 text-sm font-bold text-yellow-500">This website is not affiliated with Espruino in any way</div>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
