@@ -5,7 +5,7 @@ let failed = false;
 export default {
     async load() {
         try {
-            const res = await fetch("/translations.json");
+            const res = await fetch("./translations.json");
             const jsonRes = await res.json();
             map = jsonRes;
 
