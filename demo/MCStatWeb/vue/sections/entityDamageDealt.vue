@@ -28,7 +28,8 @@ var barChartOptions = {
     }],
     chart: {
         type: 'bar',
-        height: 'auto'
+        height: 'auto',
+        height: 400
     },
     plotOptions: {
         bar: {
