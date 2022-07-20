@@ -1,0 +1,43 @@
+{
+    "STATS": "Statistiken",
+    "WORLD": "Welt",
+    "TIME": "Zeit",
+    "LEARN_MORE_AT": "Mehr auf",
+    "MINUTES_SHORT": "min",
+    "RATIO": "Verhältnis",
+
+    "FLY": "Fliegen (Creative)",
+    "FLY_SPRINT": "Schnelles ${FLY}",
+    "FLY_SNEAK": "Herunterfliegen (Creative)",
+    "FLY_SPRINT_SNEAK": "Schnelles ${FLY_SNEAK}",
+    "WALK": "Gehen",
+    "WALK_SPRINT": "Sprinten",
+    "FALL": "Fallen",
+    "SWIM_SLOW": "Langsames Schwimmen / Tauchen",
+    "SWIM_FAST": "Schwimmen",
+    "WALK_SNEAK": "Sneaken",
+    "ELTRYA": "Elytra-Fliegen",
+    "ELTRYA_SNEAK": "Elytra-Sinken",
+    "ELTRYA_SPRINT": "Schnelles ${ELTRYA}",
+    "ELTRYA_SPRINT_SNEAK": "Schnelles ${ELTRYA_SNEAK}",
+    "WALK_SPRINT_SNEAK": "Sneak-Sprinten",
+
+    "PLAYER": "Spieler",
+    "NAME": "Name",
+    "UUID": "UUID",
+
+    "BLOCK_INTERACTIONS": "Blockinteraktionen",
+    "TOTAL_BLOCK_INTERACTIONS": "Gesamte Interaktionen",
+    "BLOCK_BREAK_PLACE_RATIO": "Bau-Abbau-${RATIO}",
+    "PLACED": "Platziert",
+    "BROKEN": "Abgebaut",
+
+    "MOVEMENT": "Bewegung",
+    "MOVEMENT_TYPE": "Bewegungstyp",
+    "DISTANCE": "Distanz",
+    "BLOCKS": "Blöcke",
+
+    "ENTITY_DAMAGE_DEALT": "Verteilter ${DAMAGE} (an Entities)",
+    "ENTITY": "Entität",
+    "DAMAGE": "Schaden"
+}

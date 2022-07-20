@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>MCStat | The statistics dashboard for Minecraft</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.7.0/sql-wasm-debug.js" integrity="sha512-ZYdQRzVzZkoANad3dIaUzsLdDhLjaa2ws+2Lax2QhJX+T5o5nSz8M7f1LH7za3ATSM+80hlhLp0bQis67n90xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.35.3/dist/apexcharts.js"></script>
+    <script src="util.js"></script>
+    <script>
+        const options = {
+            moduleCache: {
+                vue: Vue
+            },
+            async getFile(url) {
+                const res = await fetch(url);
+                if (!res.ok) throw Object.assign(new Error(res.statusText + ' ' + url), {
+                    res
+                });
+                return {
+                    getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text()
+                }
+            },
+            addStyle(textContent) {
+                const style = Object.assign(document.createElement('style'), {
+                    textContent
+                });
+                const ref = document.head.getElementsByTagName('style')[0] || null;
+                document.head.insertBefore(style, ref);
+            },
+        }
+
+        const {
+            loadModule
+        } = window['vue3-sfc-loader'];
+
+        const app = Vue.createApp({
+            components: {
+                'app': Vue.defineAsyncComponent(() => loadModule('./vue/app.vue', options))
+            },
+            template: '<app></app>'
+        });
+        app.config.globalProperties.window = window;
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

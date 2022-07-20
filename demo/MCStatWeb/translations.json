@@ -1,0 +1,48 @@
+{
+    "NO_DATA_AVAILABLE": "For the selected time and world, there currently is no data available",
+
+    "STATS": "Statistics",
+    "WORLD": "World",
+    "TIME": "Time",
+    "LEARN_MORE_AT": "Learn more at",
+    "MINUTES_SHORT": "min",
+    "RATIO": "Ratio",
+
+    "FLY": "Flying (Creative)",
+    "FLY_SPRINT": "Fast ${FLY}",
+    "FLY_SNEAK": "Flying Down (Creative)",
+    "FLY_SPRINT_SNEAK": "Fast ${FLY_SNEAK}",
+    "WALK": "Walking",
+    "WALK_SPRINT": "Sprinting",
+    "FALL": "Falling",
+    "SWIM_SLOW": "Slow Swimming / Diving",
+    "SWIM_FAST": "Swimming",
+    "WALK_SNEAK": "Sneaking",
+    "ELTRYA": "Elytra-Flying",
+    "ELTRYA_SNEAK": "Elytra-Dropping",
+    "ELTRYA_SPRINT": "Fast ${ELTRYA}",
+    "ELTRYA_SPRINT_SNEAK": "Fast ${ELTRYA_SNEAK}",
+    "WALK_SPRINT_SNEAK": "Sneak-Sprint",
+
+    "PLAYER": "Player",
+    "NAME": "Name",
+    "UUID": "UUID",
+
+    "BLOCK_INTERACTIONS": "Blockinteractions",
+    "TOTAL_BLOCK_INTERACTIONS": "Total Interactions",
+    "BLOCK_BREAK_PLACE_RATIO": "Build-Break-${RATIO}",
+    "PLACED": "Placed",
+    "BROKEN": "Broken",
+
+    "MOVEMENT": "Movement",
+    "MOVEMENT_TYPE": "Movementtype",
+    "DISTANCE": "Distance",
+    "BLOCKS": "Blocks",
+
+    "ENTITY_DAMAGE_DEALT": "Dealt ${DAMAGE} (to Entities)",
+    "ENTITY_DAMAGE_TAKEN": "Taken ${DAMAGE} (from Entities)",
+    "ENTITY": "Entity",
+    "DAMAGE": "Damage",
+    "KILLED": "Killed",
+    "HITPOINTS_SHORT": "HP"
+}
