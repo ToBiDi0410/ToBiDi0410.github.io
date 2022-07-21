@@ -33,16 +33,24 @@
     "BLOCK_BREAK_PLACE_RATIO": "Build-Break-${RATIO}",
     "PLACED": "Placed",
     "BROKEN": "Broken",
+    "TOTAL": "Total",
+    "TOP10": "Top 10",
+    "SHOW_MORE": "Show more",
+    "SHOW_LESS": "Show less",
+    "BLOCK": "Block",
 
     "MOVEMENT": "Movement",
     "MOVEMENT_TYPE": "Movementtype",
     "DISTANCE": "Distance",
     "BLOCKS": "Blocks",
 
-    "ENTITY_DAMAGE_DEALT": "Dealt ${DAMAGE} (to Entities)",
+    "ENTITY_DAMAGE_DEALT_SHORT": "Dealt ${DAMAGE}",
+    "ENTITY_DAMAGE_DEALT": "${ENTITY_DAMAGE_DEALT_SHORT} (to Entities)",
     "ENTITY_DAMAGE_TAKEN": "Taken ${DAMAGE} (from Entities)",
+    "ENTITIES_KILLED": "Killed Entities",
     "ENTITY": "Entity",
     "DAMAGE": "Damage",
     "KILLED": "Killed",
+    "KILLS": "Kills",
     "HITPOINTS_SHORT": "HP"
 }

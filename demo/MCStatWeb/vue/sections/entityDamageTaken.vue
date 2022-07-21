@@ -6,8 +6,8 @@
                 <th class="text-right">{{ data.getTrans("DAMAGE") }}</th>
             </tr>
             <tr v-for="damage of sortedEntries()" :key="damage[0]">
-                <td class="font-semibold p-1">{{ damage[0] }}</td>
-                <td class="text-right p-1">{{ window.roundTwoDecimals(damage[1]) }}</td>
+                <td class="p-1 font-semibold">{{ damage[0] }}</td>
+                <td class="text-right p-1 font-semibold">{{ window.roundTwoDecimals(damage[1]) }}</td>
             </tr>
         </table>
         <NoDataAvailable v-if="!hasData()" :data="data"></NoDataAvailable>

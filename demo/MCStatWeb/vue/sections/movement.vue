@@ -7,8 +7,8 @@
                     <th class="text-right">{{ data.getTrans("DISTANCE") }} ({{ data.getTrans("BLOCKS") }})</th>
                 </tr>
                 <tr v-for="move of sortedEntries()" :key="move[0]">
-                    <td class="font-semibold p-1">{{ data.getTrans(move[0]) }}</td>
-                    <td class="text-right p-1">{{ Math.round(move[1]) }}</td>
+                    <td class="p-1 font-semibold">{{ data.getTrans(move[0]) }}</td>
+                    <td class="text-right p-1 font-semibold">{{ Math.round(move[1]) }}</td>
                 </tr>
             </table>
             <ApexChart class="flex-grow basis-0" :options="filledMovementChartOptions" v-if="filledMovementChartOptions"></ApexChart>

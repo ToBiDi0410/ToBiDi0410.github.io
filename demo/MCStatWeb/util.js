@@ -43,3 +43,11 @@ function isNum(obj) {
 function roundTwoDecimals(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100
 }
+
+function limitArray(arr, maxcount) {
+    if (arr.length > maxcount) {
+        console.debug("LIMITED ARRAY TO MAXLENGTH", maxcount);
+        return arr.slice(0, maxcount);
+    }
+    return arr;
+}
