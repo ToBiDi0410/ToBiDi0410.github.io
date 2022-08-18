@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkER | Link everything</title>
+    <link rel="stylesheet" href="./font.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="overflow-y-auto overflow-x-hidden"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
+    <script src="./utils.js"></script>
+    <script src="./pako.min.js"></script>
+    <script>
+        const options = {
+            moduleCache: {
+                vue: Vue
+            },
+            async getFile(url) {
+
+                const res = await fetch(url);
+                if (!res.ok)
+                    throw Object.assign(new Error(res.statusText + ' ' + url), {
+                        res
+                    });
+                return {
+                    getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
+                }
+            },
+            addStyle(textContent) {
+
+                const style = Object.assign(document.createElement('style'), {
+                    textContent
+                });
+                const ref = document.head.getElementsByTagName('style')[0] || null;
+                document.head.insertBefore(style, ref);
+            },
+        }
+
+        const {
+            loadModule
+        } = window['vue3-sfc-loader'];
+
+        const app = Vue.createApp({
+            components: {
+                'my-component': Vue.defineAsyncComponent(() => loadModule('./vue/Main.vue', options))
+            },
+            template: '<my-component></my-component>'
+        });
+        app.config.globalProperties.window = window;
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
