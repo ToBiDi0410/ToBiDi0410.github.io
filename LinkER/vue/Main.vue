@@ -62,19 +62,43 @@ export default {
     mounted() {
         let params = new URLSearchParams(window.location.search);
         if(params.has("configBlob")) {
-            console.log("[CFG] Config blob found");
+            console.log("[CFG] Config Blob found");
             try {
                 const jsonString = atob(params.get("configBlob"));
                 const config = JSON.parse(jsonString);
                 this.config = config;
                 this.configLoaded = true;
-                console.log("[CFG] Config loaded:", this.config.v || "UNKNOWN VERSION");
+                console.log("[CFG] Config loaded, Version:", this.config.v || "UNKNOWN VERSION");
+            } catch (err) {
+                console.error(err);
+                this.configLoaded = err;
+            }
+        } else if(params.has("configBinary")) {
+            console.log("[CFG] Config Binary found");
+            try {
+                const jsonString = fromBinary(params.get("configBinary"));
+                const config = JSON.parse(jsonString);
+                this.config = config;
+                this.configLoaded = true;
+                console.log("[CFG] Config loaded, Version:", this.config.v || "UNKNOWN VERSION");
+            } catch (err) {
+                console.error(err);
+                this.configLoaded = err;
+            }
+        }  else if(params.has("configBlobV2")) {
+            console.log("[CFG] Config Blob V2 found");
+            try {
+                const jsonString = b64DecodeUnicode(params.get("configBlobV2"));
+                const config = JSON.parse(jsonString);
+                this.config = config;
+                this.configLoaded = true;
+                console.log("[CFG] Config loaded, Version:", this.config.v || "UNKNOWN VERSION");
             } catch (err) {
                 console.error(err);
                 this.configLoaded = err;
             }
         } else {
-            this.configLoaded = "NO_BLOB";
+            this.configLoaded = "NO_CONFIG";
         }
     }
 }
