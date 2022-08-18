@@ -19,8 +19,8 @@
                     <Detail icon="school" v-if="config.additions.study">{{ config.additions.study }}</Detail>
                 </div>
 
-                <div class="description p-2" style="max-width: 600px;">
-                    Hi! My name is Tobias and in my freetime I mostly do gaming and other stuff such as programming
+                <div class="description p-2" style="max-width: 600px;" v-if="config.desc">
+                    {{ config.desc }}
                 </div>
 
                 <div class="p-2"  v-if="config.links">
