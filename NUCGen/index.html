@@ -1,0 +1,60 @@
+<!doctype html>
+<html data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA/RNA Bild Generator</title>
+    <link href="./res/daisyUI2_42_1.css" rel="stylesheet" type="text/css" />
+    <link href="./res/tailwind2_2.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="./nukleotidImages/thymin.png" />
+</head>
+
+<body class="overflow-hidden">
+    <div id="app" class="w-screen h-screen"></div>
+    <script src="./res/vue.global.prod.js"></script>
+    <script src="./res/vue3-sfc-loader.js"></script>
+    <script>
+        const options = {
+            moduleCache: {
+                vue: Vue
+            },
+            async getFile(url) {
+
+                const res = await fetch(url);
+                if (!res.ok)
+                    throw Object.assign(new Error(res.statusText + ' ' + url), {
+                        res
+                    });
+                return {
+                    getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
+                }
+            },
+            addStyle(textContent) {
+
+                const style = Object.assign(document.createElement('style'), {
+                    textContent
+                });
+                const ref = document.head.getElementsByTagName('style')[0] || null;
+                document.head.insertBefore(style, ref);
+            },
+        }
+
+        const {
+            loadModule
+        } = window['vue3-sfc-loader'];
+
+        const app = Vue.createApp({
+            components: {
+                'my-component': Vue.defineAsyncComponent(() => loadModule('./index.vue', options))
+            },
+            template: '<my-component></my-component>'
+        });
+
+        app.config.globalProperties.window = window;
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
