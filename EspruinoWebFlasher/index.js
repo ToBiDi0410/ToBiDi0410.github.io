@@ -1,4 +1,4 @@
-const availableVersions = ["2v13", "2v12", "2v11", "2v10", "2v09", "2v08", "2v07", "2v06", "2v05"];
+const availableVersions = ["2v17", "2v16", "2v15", "2v14", "2v13", "2v12", "2v11", "2v10", "2v09", "2v08", "2v07", "2v06", "2v05"];
 
 const manifestTemplate = {
     "name": "Espruino",
